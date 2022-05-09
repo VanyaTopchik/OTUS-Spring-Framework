@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
 
-        PersonService service = (PersonService) context.getBean("personService");
+        PersonService service = context.getBean(PersonService.class);
 
         System.out.println("Добро пожаловать на тест для студентов, проходящих курс по основам Linux.");
 
