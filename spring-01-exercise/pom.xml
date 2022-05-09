@@ -15,6 +15,10 @@
     </properties>
 
     <dependencies>
-        <!-- TODO: Добавьте зависимость spring-context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.3.13</version>
+        </dependency>
     </dependencies>
 </project>

@@ -4,8 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- TODO: определите бин класса edu.spring.dao.PersonDaoSimple -->
+    <bean id="personDAO" class="edu.spring.dao.PersonDaoSimple">
+    </bean>
 
-    <!-- TODO: определите бин класса edu.spring.PersonServiceImpl -->
+    <bean id="personService" class="edu.spring.service.PersonServiceImpl">
+        <constructor-arg name="dao" ref="personDAO"/>
+    </bean>
 
 </beans>
