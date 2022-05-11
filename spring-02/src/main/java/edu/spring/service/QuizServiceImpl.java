@@ -4,13 +4,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Locale;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import edu.spring.dao.QuestionDao;
 import edu.spring.domain.Person;
 import edu.spring.domain.Question;
 
 @Service
-public class QuizServiceImpl implements QuizService{
+public class QuizServiceImpl implements QuizService {
+    
+    @Value("${app.locale}")
+    private Locale locale;
 
     private final QuestionDao dao;
 
@@ -20,49 +27,51 @@ public class QuizServiceImpl implements QuizService{
         this.dao = dao;
     }
 
+    @Autowired
+    private MessageSource messageSource;
+
     public void startTest() throws IOException {
         List<Question> questions = dao.getQuestionsFromCSVFile();
-        System.out.println("Welcome to the test for students taking a course on the basics of Linux.");
+        System.out.println(messageSource.getMessage("quiz.welcome", null, locale));
 
-        System.out.println("What is your name?");
+        System.out.println(messageSource.getMessage("quiz.name", null, locale));
         String name = consoleReader.readLine();
 
-        System.out.println("What is your surname?");
+        System.out.println(messageSource.getMessage("quiz.surname", null, locale));
         String surname = consoleReader.readLine();
 
         Person person = new Person(name, surname, 0);
-        System.out.println("Let's start the quiz, " + person.getName() + " " + person.getSurname());
+        System.out.println(messageSource.getMessage("quiz.start", new String[]{name, surname}, locale));
 
         questions.forEach(question -> {
 
             System.out.println(question.getQuestion());
-            System.out.println("Answer options: ");
+            System.out.println(messageSource.getMessage("quiz.options", null, locale));
             question.getAnswerOptions().forEach(System.out::println);
-            System.out.println("\nEnter the number of the correct answer: ");
+            System.out.println(messageSource.getMessage("quiz.answer", null, locale));
             Integer rightAnswer = question.getRightAnswer();
             Integer answer = readAnswer();
             if (rightAnswer.equals(answer)) {
-                System.out.println("Right!\n");
-                person.setScore(person.getScore()+1);
+                System.out.println(messageSource.getMessage("quiz.right", null, locale));
+                person.setScore(person.getScore() + 1);
             } else {
-                System.out.println("Wrong!\nThe correct answer is " + rightAnswer + "\n");
+                System.out.println(messageSource.getMessage("quiz.wrong", new String[]{String.valueOf(rightAnswer)}, locale));
             }
         });
         printResult(person);
     }
 
     private void printResult(Person person) {
-        System.out.print("Quiz done. " + person.getName() + " " + person.getSurname() + "  scored " + person.getScore());
-        switch (person.getScore()){
+        switch (person.getScore()) {
             case 1:
-                System.out.print(" point");
+                System.out.println(messageSource.getMessage("quiz.result1", new String[]{String.valueOf(person.getScore())}, locale));
                 break;
             case 0:
             case 2:
             case 3:
             case 4:
             case 5:
-                System.out.print(" points");
+                System.out.println(messageSource.getMessage("quiz.result2", new String[]{String.valueOf(person.getScore())}, locale));
                 break;
         }
     }
@@ -72,7 +81,7 @@ public class QuizServiceImpl implements QuizService{
         try {
             answer = Integer.valueOf(consoleReader.readLine().trim());
         } catch (IOException | NumberFormatException e) {
-            System.out.println("Error entering response number.");
+            System.out.println(messageSource.getMessage("quiz.error", null, locale));
         }
         return answer;
     }

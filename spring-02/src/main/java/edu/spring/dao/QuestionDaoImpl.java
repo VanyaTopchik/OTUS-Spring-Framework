@@ -23,8 +23,7 @@ public class QuestionDaoImpl implements QuestionDao{
         try (CSVReader reader = new CSVReader(new FileReader(filePath))) {
             List<String[]> list = reader.readAll();
             list.forEach(arr -> {
-                System.out.println(Arrays.toString(arr));
-                if (!arr[0].startsWith("\uFEFF#")) {
+                if (!arr[0].startsWith("\uFEFF")) {
                     Question question = new Question(arr[0] + ":\n" + arr[1] + "\n",
                             Arrays.asList(arr[2], arr[3], arr[4], arr[5]),
                             Integer.valueOf(arr[6].trim()));
