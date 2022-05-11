@@ -1,4 +1,4 @@
-package edu.spring.utils;
+package edu.spring.domain;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class Question {
         return rightAnswer;
     }
 
-    private String question;
-    private List<String> answerOptions;
-    private Integer rightAnswer;
+    private final String question;
+    private final List<String> answerOptions;
+    private final Integer rightAnswer;
 }

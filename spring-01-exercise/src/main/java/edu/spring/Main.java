@@ -1,31 +1,15 @@
 package edu.spring;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import edu.spring.domain.Person;
-import edu.spring.service.PersonService;
-import edu.spring.utils.Quiz;
+import edu.spring.service.QuizService;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
-
-        PersonService service = context.getBean(PersonService.class);
-
-        System.out.println("Добро пожаловать на тест для студентов, проходящих курс по основам Linux.");
-
-        System.out.println("Как тебя зовут?");
-        try (BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in))) {
-            String name = consoleReader.readLine();
-            Person person = service.getByName(name);
-            Quiz.start(person, consoleReader);
-        } catch (IOException e) {
-            System.out.println("Неверное имя.");
-        }
-
+        QuizService service = context.getBean(QuizService.class);
+        service.startTest();
         context.close();
     }
 }

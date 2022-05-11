@@ -3,18 +3,29 @@ package edu.spring.domain;
 public class Person {
 
     private final String name;
-    private final int age;
+    private final String surname;
+    private int score;
 
-    public Person(String name, int age) {
+
+    public Person(String name, String surname, int score) {
         this.name = name;
-        this.age = age;
+        this.surname = surname;
+        this.score = score;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getAge() {
-        return age;
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getScore() {
+        return score;
     }
 }
