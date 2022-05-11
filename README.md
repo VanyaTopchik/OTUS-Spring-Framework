@@ -4,8 +4,15 @@
 
 ---
 #### Task 01
-#### [Программа по проведению тестирования студентов](https://github.com/VanyaTopchik/OTUS-Spring-Framework/tree/main/spring-01-exercise)
+#### [Программа по проведению тестирования студентов](https://github.com/VanyaTopchik/OTUS-Spring-Framework/tree/main/spring-01)
 В ресурсах хранятся вопросы и различные ответы к ним в виде CSV файла (5 вопросов). 
 Программа должна спросить у пользователя фамилию и имя, спросить 5 вопросов из CSV-файла и вывести результат тестирования. <br>
 Ecosystem:
 > Spring Context
+
+#### Task 02
+#### [Annotation- + Java-based конфигурация приложения](https://github.com/VanyaTopchik/OTUS-Spring-Framework/tree/main/spring-02)
+Переписать конфигурацию в виде Java + Annotation-based конфигурации. Добавить файл настроек приложения.
+Локализовать выводимые сообщения и вопросы теста. <br>
+Ecosystem:
+> - Spring Context
