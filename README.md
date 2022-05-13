@@ -8,7 +8,7 @@
 В ресурсах хранятся вопросы и различные ответы к ним в виде CSV файла (5 вопросов). 
 Программа должна спросить у пользователя фамилию и имя, спросить 5 вопросов из CSV-файла и вывести результат тестирования. <br>
 Ecosystem:
-> Spring Context
+> - Spring Context
 
 #### Task 02
 #### [Annotation- + Java-based конфигурация приложения](https://github.com/VanyaTopchik/OTUS-Spring-Framework/tree/main/spring-02)
@@ -16,3 +16,10 @@ Ecosystem:
 Локализовать выводимые сообщения и вопросы теста. <br>
 Ecosystem:
 > - Spring Context
+
+#### Task 03
+#### [YML-настройки и тестирование](https://github.com/VanyaTopchik/OTUS-Spring-Framework/tree/main/spring-03)
+Добавить файл настроек *.yml. Реализовать тестирование функционала.
+Ecosystem:
+> - Spring Boot
+> - Spring Test
