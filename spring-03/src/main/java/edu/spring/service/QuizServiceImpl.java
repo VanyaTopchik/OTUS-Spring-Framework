@@ -15,7 +15,7 @@ import edu.spring.domain.Question;
 
 @Service
 public class QuizServiceImpl implements QuizService {
-    
+
     @Value("${app.locale}")
     private Locale locale;
 
@@ -64,14 +64,14 @@ public class QuizServiceImpl implements QuizService {
     private void printResult(Person person) {
         switch (person.getScore()) {
             case 1:
-                System.out.println(messageSource.getMessage("quiz.result1", new String[]{String.valueOf(person.getScore())}, locale));
+                System.out.println(messageSource.getMessage("quiz.result.1", new String[]{person.getName(), person.getSurname(), String.valueOf(person.getScore())}, locale));
                 break;
             case 0:
             case 2:
             case 3:
             case 4:
             case 5:
-                System.out.println(messageSource.getMessage("quiz.result2", new String[]{String.valueOf(person.getScore())}, locale));
+                System.out.println(messageSource.getMessage("quiz.result.2", new String[]{person.getName(), person.getSurname(), String.valueOf(person.getScore())}, locale));
                 break;
         }
     }
