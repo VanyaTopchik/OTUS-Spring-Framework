@@ -19,7 +19,7 @@ Ecosystem:
 
 #### Task 03
 #### [YML-настройки и тестирование](https://github.com/VanyaTopchik/OTUS-Spring-Framework/tree/main/spring-03)
-Добавить файл настроек *.yml. Реализовать тестирование функционала.
+Добавить файл настроек *.yml. Реализовать тестирование функционала с помощью spring-boot-test-starter. Сделать собственный баннер для приложения.
 Ecosystem:
 > - Spring Boot
 > - Spring Test
