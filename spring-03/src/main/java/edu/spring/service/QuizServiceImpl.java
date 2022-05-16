@@ -63,15 +63,23 @@ public class QuizServiceImpl implements QuizService {
 
     private void printResult(Person person) {
         switch (person.getScore()) {
+            case 0:
+                System.out.println(messageSource.getMessage("quiz.result.0", new String[]{person.getName(), person.getSurname(), String.valueOf(person.getScore())}, locale));
+                break;
             case 1:
                 System.out.println(messageSource.getMessage("quiz.result.1", new String[]{person.getName(), person.getSurname(), String.valueOf(person.getScore())}, locale));
                 break;
-            case 0:
             case 2:
-            case 3:
-            case 4:
-            case 5:
                 System.out.println(messageSource.getMessage("quiz.result.2", new String[]{person.getName(), person.getSurname(), String.valueOf(person.getScore())}, locale));
+                break;
+            case 3:
+                System.out.println(messageSource.getMessage("quiz.result.3", new String[]{person.getName(), person.getSurname(), String.valueOf(person.getScore())}, locale));
+                break;
+            case 4:
+                System.out.println(messageSource.getMessage("quiz.result.4", new String[]{person.getName(), person.getSurname(), String.valueOf(person.getScore())}, locale));
+                break;
+            case 5:
+                System.out.println(messageSource.getMessage("quiz.result.5", new String[]{person.getName(), person.getSurname(), String.valueOf(person.getScore())}, locale));
                 break;
         }
     }
