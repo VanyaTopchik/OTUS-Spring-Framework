@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
-import edu.spring.dao.QuestionDao;
 import edu.spring.domain.Person;
 import edu.spring.domain.Question;
 
@@ -19,11 +18,11 @@ public class QuizServiceImpl implements QuizService {
     @Value("${app.locale}")
     private Locale locale;
 
-    private final QuestionDao dao;
+    private final QuestionReader dao;
 
     private final BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
 
-    public QuizServiceImpl(QuestionDao dao) {
+    public QuizServiceImpl(QuestionReader dao) {
         this.dao = dao;
     }
 

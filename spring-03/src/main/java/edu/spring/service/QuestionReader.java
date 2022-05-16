@@ -1,8 +1,8 @@
-package edu.spring.dao;
+package edu.spring.service;
 
 import java.util.List;
 import edu.spring.domain.Question;
 
-public interface QuestionDao {
+public interface QuestionReader {
     List<Question> getQuestionsFromCSVFile();
 }

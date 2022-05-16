@@ -1,4 +1,4 @@
-package edu.spring.dao;
+package edu.spring.service;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import edu.spring.domain.Question;
 
-@Repository
-public class QuestionDaoImpl implements QuestionDao{
+@Service
+public class QuestionReaderImpl implements QuestionReader {
 
     @Value("${file.path}")
     private String filePath;
