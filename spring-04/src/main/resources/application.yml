@@ -2,3 +2,6 @@ app:
   locale: en
 file:
   path: src/main/resources/questions_${app.locale}.csv
+spring:
+  main:
+    allow-circular-references: true
