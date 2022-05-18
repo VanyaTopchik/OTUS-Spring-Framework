@@ -1,8 +1,6 @@
 package edu.spring.service;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +18,11 @@ public class QuizServiceImpl implements QuizService {
 
     private final QuestionReader dao;
 
-    private final BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
+    private final ConsoleReader consoleReader;
 
-    public QuizServiceImpl(QuestionReader dao) {
+    public QuizServiceImpl(QuestionReader dao, ConsoleReader consoleReader) {
         this.dao = dao;
+        this.consoleReader = consoleReader;
     }
 
     @Autowired
@@ -40,7 +39,7 @@ public class QuizServiceImpl implements QuizService {
         String surname = consoleReader.readLine();
 
         Person person = new Person(name, surname, 0);
-        System.out.println(messageSource.getMessage("quiz.start", new String[]{name, surname}, locale));
+        System.out.println(messageSource.getMessage("quiz.start", new String[]{person.getName(), person.getSurname()}, locale));
 
         questions.forEach(question -> {
 
