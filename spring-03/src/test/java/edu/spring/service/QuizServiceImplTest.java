@@ -23,7 +23,5 @@ class QuizServiceImplTest {
     void startTest() throws IOException {
         when(consoleReader.readLine()).thenReturn("Vanya", "Topchik", "2", "3", "1", "2", "1");
         quizService.startTest();
-        QuizService service = mock(QuizService.class);
-        verify(service, times(1)).startTest();
     }
 }
