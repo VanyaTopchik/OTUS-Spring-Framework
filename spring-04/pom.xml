@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>edu.spring</groupId>
-    <artifactId>spring-03</artifactId>
+    <artifactId>spring-04</artifactId>
     <version>1.0</version>
-    <name>spring-03</name>
+    <name>spring-04</name>
 
     <properties>
         <java.version>11</java.version>
