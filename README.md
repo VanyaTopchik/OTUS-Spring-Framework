@@ -23,3 +23,22 @@ Ecosystem:
 Ecosystem:
 > - Spring Boot
 > - Spring Test
+
+#### Task 04
+#### [Spring Shell поддержка](https://github.com/VanyaTopchik/OTUS-Spring-Framework/tree/main/spring-04)
+Перевести приложение для проведения опросов на Spring Shell. Проект создать через spring-initializer. <br>
+Ecosystem:
+> - Spring Boot
+> - Spring Boot Test
+> - Spring Shell
+
+#### Task 05
+#### [Spring JDBC](https://github.com/VanyaTopchik/OTUS-Spring-Framework/tree/main/spring-05)
+Создать приложение хранящее информацию о книгах в билиотеке. Использовать Spring JDBC и реляционную базу.
+Использовать реляционную БД и встроенную in-memory. Предусмотреть таблицы авторов, книг и жанров. <br>
+Ecosystem:
+> - Spring Boot
+> - Spring Boot Test
+> - Spring JDBC
+> - Embedded Postgres
+> - H2
