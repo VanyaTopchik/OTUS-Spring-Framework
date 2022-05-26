@@ -8,7 +8,7 @@ import edu.spring.spring05.domain.Genre;
 
 public interface BookDao {
 
-    void add(Book book);
+    void save(Book book);
 
     Book findById(String id);
     List<Book> findByAuthor(Author author);

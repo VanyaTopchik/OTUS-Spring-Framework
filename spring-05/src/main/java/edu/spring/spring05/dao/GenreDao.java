@@ -4,7 +4,7 @@ import edu.spring.spring05.domain.Genre;
 
 public interface GenreDao {
 
-    void add(Genre genre);
+    void save(Genre genre);
     Genre findByTitle(String title);
 
     Genre findById(String id);

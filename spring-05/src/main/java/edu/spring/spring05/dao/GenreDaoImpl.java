@@ -16,7 +16,7 @@ public class GenreDaoImpl implements GenreDao{
 
 
     @Override
-    public void add(Genre genre) {
+    public void save(Genre genre) {
 
     }
 

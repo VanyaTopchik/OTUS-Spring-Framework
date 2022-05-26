@@ -24,7 +24,7 @@ public class BookDaoImpl implements BookDao{
     private NamedParameterJdbcOperations jdbcTemplate;
 
     @Override
-    public void add(Book book) {
+    public void save(Book book) {
         final HashMap<String, Object> params = new HashMap<>();
         params.put("id", book.getId());
         params.put("author_id", book.getAuthor().getId());

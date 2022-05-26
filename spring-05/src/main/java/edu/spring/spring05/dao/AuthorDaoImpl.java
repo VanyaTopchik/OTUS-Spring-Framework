@@ -15,7 +15,7 @@ public class AuthorDaoImpl implements AuthorDao {
     private NamedParameterJdbcOperations jdbcTemplate;
 
     @Override
-    public void add(Author author) {
+    public void save(Author author) {
         final HashMap<String, Object> params = new HashMap<>();
         params.put("name", author.getName());
         jdbcTemplate.update("insert into authors 'name' values :name", params);

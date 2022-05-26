@@ -4,7 +4,7 @@ import edu.spring.spring05.domain.Author;
 
 public interface AuthorDao {
 
-    void add(Author author);
+    void save(Author author);
 
     Author findByName(String name);
 
