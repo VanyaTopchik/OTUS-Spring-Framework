@@ -5,12 +5,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.stereotype.Repository;
 import edu.spring.spring05.domain.Genre;
+import lombok.RequiredArgsConstructor;
 
 @Repository
+@RequiredArgsConstructor
 public class GenreDaoImpl implements GenreDao{
 
     @Autowired
     private NamedParameterJdbcOperations jdbcTemplate;
+
+
+    @Override
+    public void add(Genre genre) {
+
+    }
 
     @Override
     public Genre findByTitle(String title) {
@@ -27,6 +35,14 @@ public class GenreDaoImpl implements GenreDao{
     }
 
     @Override
+    public void update(Genre genre) {
+        final HashMap<String, Object> params = new HashMap<>();
+        params.put("id", genre.getId());
+        params.put("title", genre.getTitle());
+        jdbcTemplate.update("update genres set title=:title where id=:id", params);
+    }
+
+    @Override
     public void removeById(String id) {
         final HashMap<String, Object> params = new HashMap<>();
         params.put("id", id);
@@ -35,17 +51,6 @@ public class GenreDaoImpl implements GenreDao{
 
     @Override
     public Integer count() {
-         return jdbcTemplate.queryForObject("select count(*) from genres", new HashMap<>(), Integer.class);
+        return jdbcTemplate.queryForObject("select count(*) from genres", new HashMap<>(), Integer.class);
     }
-
-    @Override
-    public void add(Genre genre) {
-
-    }
-
-    @Override
-    public void update(Genre genre) {
-
-    }
-
 }

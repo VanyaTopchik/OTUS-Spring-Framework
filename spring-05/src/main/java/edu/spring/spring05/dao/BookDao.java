@@ -7,17 +7,17 @@ import edu.spring.spring05.domain.Book;
 import edu.spring.spring05.domain.Genre;
 
 public interface BookDao {
+
+    void add(Book book);
+
+    Book findById(String id);
     List<Book> findByAuthor(Author author);
 
     List<Book> findByGenre(Genre genre);
 
-    void add(Book book);
-
-    void removeById(String id);
-
     void update(Book book);
 
-    Book findById(String id);
+    void removeById(String id);
 
     Integer count();
 }
