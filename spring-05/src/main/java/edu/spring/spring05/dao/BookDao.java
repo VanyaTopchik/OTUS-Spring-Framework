@@ -11,6 +11,7 @@ public interface BookDao {
     void save(Book book);
 
     Book findById(String id);
+
     List<Book> findByAuthor(Author author);
 
     List<Book> findByGenre(Genre genre);

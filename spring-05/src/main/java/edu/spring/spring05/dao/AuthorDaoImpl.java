@@ -1,7 +1,9 @@
 package edu.spring.spring05.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.stereotype.Repository;
 import edu.spring.spring05.domain.Author;
@@ -11,8 +13,19 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AuthorDaoImpl implements AuthorDao {
 
-    @Autowired
-    private NamedParameterJdbcOperations jdbcTemplate;
+    private final NamedParameterJdbcOperations jdbcTemplate;
+
+    private static class AuthorMapper implements RowMapper<Author> {
+
+        @Override
+        public Author mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Long id = rs.getLong("id");
+
+            String name = rs.getString("name");
+
+            return new Author(id, name);
+        }
+    }
 
     @Override
     public void save(Author author) {
@@ -25,14 +38,14 @@ public class AuthorDaoImpl implements AuthorDao {
     public Author findByName(String name) {
         final HashMap<String, Object> params = new HashMap<>();
         params.put("name", name);
-        return jdbcTemplate.queryForObject("select * from authors where name=:name", params, Author.class);
+        return jdbcTemplate.queryForObject("select * from authors where name=:name", params, new AuthorMapper());
     }
 
     @Override
     public Author findById(String id) {
         final HashMap<String, Object> params = new HashMap<>();
         params.put("id", id);
-        return jdbcTemplate.queryForObject("select * from authors where id=:id", params, Author.class);
+        return jdbcTemplate.queryForObject("select * from authors where id=:id", params, new AuthorMapper());
     }
 
     @Override
