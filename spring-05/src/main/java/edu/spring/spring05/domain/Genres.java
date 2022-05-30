@@ -13,7 +13,7 @@ public enum Genres {
         return title;
     }
 
-    private Genres(String title) {
+    Genres(String title) {
         this.title = title;
     }
 

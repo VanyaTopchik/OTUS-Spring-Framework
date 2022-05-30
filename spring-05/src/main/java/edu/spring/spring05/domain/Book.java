@@ -2,18 +2,20 @@ package edu.spring.spring05.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
+@RequiredArgsConstructor
 @AllArgsConstructor
 public class Book {
 
     private Long id;
 
-    private Author author;
+    private final Author author;
 
-    private Genre genre;
+    private final Genre genre;
 
-    private String title;
+    private final String title;
 
-    private String description;
+    private final String description;
 }

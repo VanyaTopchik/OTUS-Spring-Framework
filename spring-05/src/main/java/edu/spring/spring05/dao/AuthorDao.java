@@ -1,19 +1,21 @@
 package edu.spring.spring05.dao;
 
+import java.util.List;
 import edu.spring.spring05.domain.Author;
 
 public interface AuthorDao {
 
     void save(Author author);
 
-    Author findByName(String name);
+    List<Author> findByName(String name);
 
-    Author findById(String id);
+    Author findById(Long id);
 
     void update(Author author);
 
-    void removeById(String id);
+    void removeById(Long id);
 
     Integer count();
 
+    List<Author> getAllAuthors();
 }

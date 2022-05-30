@@ -3,6 +3,7 @@ package edu.spring.spring05.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.stereotype.Repository;
@@ -35,14 +36,14 @@ public class AuthorDaoImpl implements AuthorDao {
     }
 
     @Override
-    public Author findByName(String name) {
+    public List<Author> findByName(String name) {
         final HashMap<String, Object> params = new HashMap<>();
         params.put("name", name);
-        return jdbcTemplate.queryForObject("select * from authors where name=:name", params, new AuthorMapper());
+        return jdbcTemplate.query("select * from authors where name=:name", params, new AuthorMapper());
     }
 
     @Override
-    public Author findById(String id) {
+    public Author findById(Long id) {
         final HashMap<String, Object> params = new HashMap<>();
         params.put("id", id);
         return jdbcTemplate.queryForObject("select * from authors where id=:id", params, new AuthorMapper());
@@ -57,7 +58,7 @@ public class AuthorDaoImpl implements AuthorDao {
     }
 
     @Override
-    public void removeById(String id) {
+    public void removeById(Long id) {
         final HashMap<String, Object> params = new HashMap<>();
         params.put("id", id);
         jdbcTemplate.update("delete from authors where id=:id", params);
@@ -66,5 +67,10 @@ public class AuthorDaoImpl implements AuthorDao {
     @Override
     public Integer count() {
         return jdbcTemplate.queryForObject("select count(*) from authors", new HashMap<>(), Integer.class);
+    }
+
+    @Override
+    public List<Author> getAllAuthors() {
+        return jdbcTemplate.query("select * from authors", new AuthorMapper());
     }
 }

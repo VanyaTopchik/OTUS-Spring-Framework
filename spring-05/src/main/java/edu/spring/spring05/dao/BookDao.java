@@ -1,6 +1,5 @@
 package edu.spring.spring05.dao;
 
-
 import java.util.List;
 import edu.spring.spring05.domain.Author;
 import edu.spring.spring05.domain.Book;
@@ -10,7 +9,7 @@ public interface BookDao {
 
     void save(Book book);
 
-    Book findById(String id);
+    Book findById(Long id);
 
     List<Book> findByAuthor(Author author);
 
@@ -21,4 +20,6 @@ public interface BookDao {
     void removeById(String id);
 
     Integer count();
+
+    List<Book> getAllBooks();
 }

@@ -52,7 +52,7 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public Book findById(String id) {
+    public Book findById(Long id) {
         final HashMap<String, Object> params = new HashMap<>();
         params.put("id", id);
         return jdbcTemplate.queryForObject("select * from books where id=:id", params, new BookMapper());
@@ -93,5 +93,10 @@ public class BookDaoImpl implements BookDao {
     @Override
     public Integer count() {
         return jdbcTemplate.queryForObject("select count(*) from books", new HashMap<>(), Integer.class);
+    }
+
+    @Override
+    public List<Book> getAllBooks() {
+        return jdbcTemplate.query("select * from books", new BookMapper());
     }
 }
