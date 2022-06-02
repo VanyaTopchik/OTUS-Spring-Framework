@@ -32,7 +32,7 @@ public class AuthorDaoImpl implements AuthorDao {
     public void save(Author author) {
         final HashMap<String, Object> params = new HashMap<>();
         params.put("name", author.getName());
-        jdbcTemplate.update("insert into authors 'name' values :name", params);
+        jdbcTemplate.update("insert into authors (name) values (:name)", params);
     }
 
     @Override
@@ -61,11 +61,12 @@ public class AuthorDaoImpl implements AuthorDao {
     public void removeById(Long id) {
         final HashMap<String, Object> params = new HashMap<>();
         params.put("id", id);
+        jdbcTemplate.update("update books set author_id=null where author_id=:id", params);
         jdbcTemplate.update("delete from authors where id=:id", params);
     }
 
     @Override
-    public Integer count() {
+    public int count() {
         return jdbcTemplate.queryForObject("select count(*) from authors", new HashMap<>(), Integer.class);
     }
 

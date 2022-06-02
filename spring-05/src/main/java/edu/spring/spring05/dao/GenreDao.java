@@ -14,9 +14,9 @@ public interface GenreDao {
 
     void update(Genre genre);
 
-    void removeById(String id);
+    void removeById(Long id);
 
-    Integer count();
+    int count();
 
     List<Genre> getAllGenres();
 }

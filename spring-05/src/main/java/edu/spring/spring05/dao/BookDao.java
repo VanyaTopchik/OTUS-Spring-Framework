@@ -17,9 +17,9 @@ public interface BookDao {
 
     void update(Book book);
 
-    void removeById(String id);
+    void removeById(Long id);
 
-    Integer count();
+    int count();
 
     List<Book> getAllBooks();
 }

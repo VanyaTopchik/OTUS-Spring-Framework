@@ -61,19 +61,20 @@ public class GenreDaoImpl implements GenreDao {
     public void update(Genre genre) {
         final HashMap<String, Object> params = new HashMap<>();
         params.put("id", genre.getId());
-        params.put("title", genre.getGenre().getTitle());
-        jdbcTemplate.update("update genres set title=:title where id=:id", params);
+        params.put("genre", genre.getGenre().getTitle());
+        jdbcTemplate.update("update genres set genre=:genre where id=:id", params);
     }
 
     @Override
-    public void removeById(String id) {
+    public void removeById(Long id) {
         final HashMap<String, Object> params = new HashMap<>();
         params.put("id", id);
+        jdbcTemplate.update("update books set genre_id=null where genre_id=:id", params);
         jdbcTemplate.update("delete from genres where id=:id", params);
     }
 
     @Override
-    public Integer count() {
+    public int count() {
         return jdbcTemplate.queryForObject("select count(*) from genres", new HashMap<>(), Integer.class);
     }
 

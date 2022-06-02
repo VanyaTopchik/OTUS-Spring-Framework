@@ -15,7 +15,7 @@ public interface AuthorDao {
 
     void removeById(Long id);
 
-    Integer count();
+    int count();
 
     List<Author> getAllAuthors();
 }
