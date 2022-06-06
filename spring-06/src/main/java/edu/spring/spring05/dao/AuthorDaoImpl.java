@@ -1,19 +1,15 @@
 package edu.spring.spring05.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
+import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 import edu.spring.spring05.domain.Author;
-import lombok.RequiredArgsConstructor;
 
 @Repository
-@RequiredArgsConstructor
+@Transactional
 public class AuthorDaoImpl implements AuthorDao {
 
     @PersistenceContext
@@ -21,48 +17,40 @@ public class AuthorDaoImpl implements AuthorDao {
 
     @Override
     public void save(Author author) {
-        final HashMap<String, Object> params = new HashMap<>();
-        params.put("name", author.getName());
-        jdbcTemplate.update("insert into authors (name) values (:name)", params);
+        entityManager.persist(author);
     }
 
     @Override
     public List<Author> findByName(String name) {
-        final HashMap<String, Object> params = new HashMap<>();
-        params.put("name", name);
-        return jdbcTemplate.query("select * from authors where name=:name", params, new AuthorMapper());
+        TypedQuery<Author> query = entityManager.createQuery("select a from author a where a.name=:name", Author.class);
+        query.setParameter("name", name);
+        return query.getResultList();
     }
 
     @Override
     public Author findById(Long id) {
         return entityManager.find(Author.class, id);
-        params.put("id", id);
-        return jdbcTemplate.queryForObject("select * from authors where id=:id", params, new AuthorMapper());
     }
 
     @Override
     public void update(Author author) {
-        final HashMap<String, Object> params = new HashMap<>();
-        params.put("id", author.getId());
-        params.put("name", author.getName());
-        jdbcTemplate.update("update authors set name=:name where id=:id", params);
+        entityManager.merge(author);
     }
 
     @Override
     public void removeById(Long id) {
-        final HashMap<String, Object> params = new HashMap<>();
-        params.put("id", id);
-        jdbcTemplate.update("update books set author_id=null where author_id=:id", params);
-        jdbcTemplate.update("delete from authors where id=:id", params);
+        entityManager.remove(findById(id));
     }
 
     @Override
     public int count() {
-        return jdbcTemplate.queryForObject("select count(*) from authors", new HashMap<>(), Integer.class);
+        TypedQuery<Integer> query = entityManager.createQuery("select count(a) from author a", Integer.class);
+        return query.getSingleResult();
     }
 
     @Override
     public List<Author> getAllAuthors() {
-        return jdbcTemplate.query("select * from authors", new AuthorMapper());
+        TypedQuery<Author> query = entityManager.createQuery("select a from author a", Author.class);
+        return query.getResultList();
     }
 }
