@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.stereotype.Repository;
@@ -14,19 +16,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AuthorDaoImpl implements AuthorDao {
 
-    private final NamedParameterJdbcOperations jdbcTemplate;
-
-    private static class AuthorMapper implements RowMapper<Author> {
-
-        @Override
-        public Author mapRow(ResultSet rs, int rowNum) throws SQLException {
-            Long id = rs.getLong("id");
-
-            String name = rs.getString("name");
-
-            return new Author(id, name);
-        }
-    }
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Override
     public void save(Author author) {
@@ -44,7 +35,7 @@ public class AuthorDaoImpl implements AuthorDao {
 
     @Override
     public Author findById(Long id) {
-        final HashMap<String, Object> params = new HashMap<>();
+        return entityManager.find(Author.class, id);
         params.put("id", id);
         return jdbcTemplate.queryForObject("select * from authors where id=:id", params, new AuthorMapper());
     }
