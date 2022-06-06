@@ -34,11 +34,22 @@ Ecosystem:
 
 #### Task 05
 #### [Spring JDBC](https://github.com/VanyaTopchik/OTUS-Spring-Framework/tree/main/spring-05)
-Создать приложение хранящее информацию о книгах в билиотеке. Использовать Spring JDBC и реляционную базу.
-Использовать реляционную БД и встроенную in-memory. Предусмотреть таблицы авторов, книг и жанров. <br>
+Создать приложение хранящее информацию о книгах в билиотеке. Использовать Spring JDBC, реляционную БД и встроенную in-memory. Предусмотреть таблицы авторов, книг и жанров. <br>
 Ecosystem:
 > - Spring Boot
 > - Spring Boot Test
 > - Spring JDBC
 > - Embedded Postgres
+> - H2
+
+#### Task 06
+#### [Spring JPA](https://github.com/VanyaTopchik/OTUS-Spring-Framework/tree/main/spring-06)
+Переписать приложение для хранения книг с использованием ORM. Использовать JPA, Hibernate только в качестве JPA-провайдера.
+Покрыть DAO тестами используя H2 базу данных и соответствующий H2 Hibernate-диалект. <br>
+Ecosystem:
+> - Spring Boot
+> - Spring Boot Test
+> - Spring Boot JDBC
+> - Spring Data JPA
+> - Liquibase
 > - H2
