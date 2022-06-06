@@ -1,7 +1,7 @@
 package edu.spring.spring05.domain;
 
 public enum Genres {
-    
+
     ROMAN("Роман"),
     STORY("Повесть"),
     POEM("Поэма"),

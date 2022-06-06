@@ -1,7 +1,6 @@
 package edu.spring.spring05;
 
 import java.util.Arrays;
-import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +31,7 @@ public class GenreDaoTest {
 
     @Test
     public void updateAndGetAll_is_OK() {
-        Assert.assertEquals(genreDao.getAllGenres(), Arrays.asList(new Genre(1L, Genres.ROMAN), new Genre(2L, Genres.STORY), new Genre(3L, Genres.POEM),new Genre(4L, Genres.COMEDY)));
+        Assert.assertEquals(genreDao.getAllGenres(), Arrays.asList(new Genre(1L, Genres.ROMAN), new Genre(2L, Genres.STORY), new Genre(3L, Genres.POEM), new Genre(4L, Genres.COMEDY)));
         Genre genre = new Genre(4L, Genres.ROMAN);
         genreDao.update(genre);
         Assert.assertEquals(genreDao.getAllGenres(), Arrays.asList(new Genre(1L, Genres.ROMAN), new Genre(2L, Genres.STORY), new Genre(3L, Genres.POEM), genre));
