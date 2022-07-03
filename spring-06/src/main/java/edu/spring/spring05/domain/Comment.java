@@ -1,6 +1,5 @@
 package edu.spring.spring05.domain;
 
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,31 +14,20 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Entity
-@Table(name = "books")
+@Table(name = "comments")
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class Book {
-
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "author_id")
-    private final Author author;
+    @ManyToOne(targetEntity = Book.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "book_id")
+    private Book book;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "genre_id")
-    private final Genre genre;
+    @Column(name = "comment", nullable = false)
+    private String comment;
 
-    @Column(name = "title")
-    private final String title;
-
-    @Column(name = "description")
-    private final String description;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Column(name = "comment")
-    private final List<Comment> comments;
 }
