@@ -23,7 +23,7 @@ public class GenreDaoImpl implements GenreDao {
 
     @Override
     public List<Genre> findByGenre(Genres genre) {
-        TypedQuery<Genre> query = entityManager.createQuery("select g from genre g where g.genre=:genre", Genre.class);
+        TypedQuery<Genre> query = entityManager.createQuery("select a from Genre a where a.genre=:genre", Genre.class);
         query.setParameter("genre", genre);
         return query.getResultList();
     }
@@ -45,13 +45,13 @@ public class GenreDaoImpl implements GenreDao {
 
     @Override
     public int count() {
-        TypedQuery<Integer> query = entityManager.createQuery("select count(g) from genre g", Integer.class);
+        TypedQuery<Integer> query = entityManager.createQuery("select count(a) from Genre a", Integer.class);
         return query.getSingleResult();
     }
 
     @Override
     public List<Genre> getAllGenres() {
-        TypedQuery<Genre> query = entityManager.createQuery("select g from genre g", Genre.class);
+        TypedQuery<Genre> query = entityManager.createQuery("select a from Genre a", Genre.class);
         return query.getResultList();
     }
 }

@@ -29,14 +29,14 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public List<Book> findByAuthor(Author author) {
-        TypedQuery<Book> query = entityManager.createQuery("select books.*, genres.genre, authors.name from books, genres, authors where books.author_id=:author_id and books.genre_id=genres.id and books.author_id=authors.id", Book.class);
+        TypedQuery<Book> query = entityManager.createQuery("select a from Book a where a.author_id=:author_id", Book.class);
         query.setParameter("author_id", author.getId());
         return query.getResultList();
     }
 
     @Override
     public List<Book> findByGenre(Genre genre) {
-        TypedQuery<Book> query = entityManager.createQuery("select books.*, genres.genre, authors.name from books, genres, authors where books.genre_id=:genre_id and books.genre_id=genres.id and books.author_id=authors.id", Book.class);
+        TypedQuery<Book> query = entityManager.createQuery("select a from Book a where a.genre_id=:genre_id", Book.class);
         query.setParameter("genre_id", genre.getId());
         return query.getResultList();
     }
@@ -55,13 +55,13 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public int count() {
-        TypedQuery<Integer> query = entityManager.createQuery("select count(*) from books", Integer.class);
+        TypedQuery<Integer> query = entityManager.createQuery("select count(a) from Book a", Integer.class);
         return query.getSingleResult();
     }
 
     @Override
     public List<Book> getAllBooks() {
-        TypedQuery<Book> query = entityManager.createQuery("select books.*, genres.genre, authors.name from books, genres, authors where books.genre_id=genres.id and books.author_id=authors.id", Book.class);
+        TypedQuery<Book> query = entityManager.createQuery("select a from Book a", Book.class);
         return query.getResultList();
     }
 }

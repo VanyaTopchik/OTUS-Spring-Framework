@@ -19,28 +19,28 @@ import edu.spring.spring05.domain.Author;
 public class AuthorDaoTest {
 
     @Autowired
-    private AuthorDao AuthorDao;
+    private AuthorDao authorDao;
 
     @Test
     public void saveAndFind_is_OK() {
         Author author = new Author(6L, "Карамзин");
-        AuthorDao.save(author);
-        Assert.assertEquals(AuthorDao.findById(6L), author);
-        Assert.assertEquals(AuthorDao.findByName("Карамзин"), Collections.singletonList(author));
+        authorDao.save(author);
+        Assert.assertEquals(authorDao.findById(6L), author);
+        Assert.assertEquals(authorDao.findByName("Карамзин"), Collections.singletonList(author));
     }
 
     @Test
     public void updateAndGetAll_is_OK() {
-        Assert.assertEquals(AuthorDao.getAllAuthors(), Arrays.asList(new Author(1L, "Достоевский"), new Author(2L, "Булгаков"), new Author(3L, "Пушкин"), new Author(4L, "Толстой"), new Author(5L, "Гоголь")));
+        Assert.assertEquals(authorDao.getAllAuthors(), Arrays.asList(new Author(1L, "Достоевский"), new Author(2L, "Булгаков"), new Author(3L, "Пушкин"), new Author(4L, "Толстой"), new Author(5L, "Гоголь")));
         Author author = new Author(5L, "Оруэлл");
-        AuthorDao.update(author);
-        Assert.assertEquals(AuthorDao.getAllAuthors(), Arrays.asList(new Author(1L, "Достоевский"), new Author(2L, "Булгаков"), new Author(3L, "Пушкин"), new Author(4L, "Толстой"), new Author(5L, "Оруэлл")));
+        authorDao.update(author);
+        Assert.assertEquals(authorDao.getAllAuthors(), Arrays.asList(new Author(1L, "Достоевский"), new Author(2L, "Булгаков"), new Author(3L, "Пушкин"), new Author(4L, "Толстой"), new Author(5L, "Оруэлл")));
     }
 
     @Test
     public void removeAndCount_is_OK() {
-        Assert.assertEquals(AuthorDao.count(), 5);
-        AuthorDao.removeById(1L);
-        Assert.assertEquals(AuthorDao.count(), 4);
+        Assert.assertEquals(authorDao.count(), 5);
+        authorDao.removeById(1L);
+        Assert.assertEquals(authorDao.count(), 4);
     }
 }

@@ -22,7 +22,7 @@ public class AuthorDaoImpl implements AuthorDao {
 
     @Override
     public List<Author> findByName(String name) {
-        TypedQuery<Author> query = entityManager.createQuery("select a from author a where a.name=:name", Author.class);
+        TypedQuery<Author> query = entityManager.createQuery("select a from Author a where a.name=:name", Author.class);
         query.setParameter("name", name);
         return query.getResultList();
     }
@@ -44,13 +44,13 @@ public class AuthorDaoImpl implements AuthorDao {
 
     @Override
     public int count() {
-        TypedQuery<Integer> query = entityManager.createQuery("select count(a) from author a", Integer.class);
+        TypedQuery<Integer> query = entityManager.createQuery("select count(a) from Author a", Integer.class);
         return query.getSingleResult();
     }
 
     @Override
     public List<Author> getAllAuthors() {
-        TypedQuery<Author> query = entityManager.createQuery("select a from author a", Author.class);
+        TypedQuery<Author> query = entityManager.createQuery("select a from Author a", Author.class);
         return query.getResultList();
     }
 }
