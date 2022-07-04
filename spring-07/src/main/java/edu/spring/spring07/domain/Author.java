@@ -16,11 +16,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class Author {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name")
-    private final String name;
+    private String name;
+
+    public Author(String name) {
+        this.name = name;
+    }
 }

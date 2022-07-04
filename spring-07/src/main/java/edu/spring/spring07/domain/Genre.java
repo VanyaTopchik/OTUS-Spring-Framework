@@ -21,6 +21,11 @@ public class Genre {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public Genre(Genres genre) {
+        this.genre = genre;
+    }
+
     @Column(name = "genre")
-    private final Genres genre;
+    private Genres genre;
+
 }

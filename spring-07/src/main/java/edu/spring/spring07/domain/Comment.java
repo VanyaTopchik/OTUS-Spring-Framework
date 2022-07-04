@@ -30,4 +30,8 @@ public class Comment {
     @Column(name = "comment", nullable = false)
     private String comment;
 
+    public Comment(Book book, String comment) {
+        this.book = book;
+        this.comment = comment;
+    }
 }
