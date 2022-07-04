@@ -53,3 +53,13 @@ Ecosystem:
 > - Spring Data JPA
 > - Liquibase
 > - H2
+
+#### Task 07
+#### [Spring Data JPA](https://github.com/VanyaTopchik/OTUS-Spring-Framework/tree/main/spring-07)
+Реализовать весь функционал работы с БД в приложении для хранения книг с использованием DATA JPA репозиториев. <br>
+Ecosystem:
+> - Spring Boot
+> - Spring Boot Test
+> - Spring Data Jpa
+> - H2
+ 
