@@ -1,4 +1,4 @@
-package edu.spring.spring05.domain;
+package edu.spring.spring07.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

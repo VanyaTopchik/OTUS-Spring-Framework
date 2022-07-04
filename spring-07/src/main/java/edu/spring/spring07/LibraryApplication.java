@@ -1,4 +1,4 @@
-package edu.spring.spring05;
+package edu.spring.spring07;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

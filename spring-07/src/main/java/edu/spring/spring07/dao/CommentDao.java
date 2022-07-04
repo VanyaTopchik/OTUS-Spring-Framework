@@ -1,6 +1,6 @@
-package edu.spring.spring05.dao;
+package edu.spring.spring07.dao;
 
-import edu.spring.spring05.domain.Comment;
+import edu.spring.spring07.domain.Comment;
 
 public interface CommentDao {
     void addComment(Comment comment);

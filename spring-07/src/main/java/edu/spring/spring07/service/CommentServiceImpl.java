@@ -1,12 +1,12 @@
-package edu.spring.spring05.service;
+package edu.spring.spring07.service;
 
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import edu.spring.spring05.dao.BookDao;
-import edu.spring.spring05.dao.CommentDao;
-import edu.spring.spring05.domain.Comment;
+import edu.spring.spring07.dao.BookDao;
+import edu.spring.spring07.dao.CommentDao;
+import edu.spring.spring07.domain.Comment;
 
 @Service
 public class CommentServiceImpl implements CommentService{

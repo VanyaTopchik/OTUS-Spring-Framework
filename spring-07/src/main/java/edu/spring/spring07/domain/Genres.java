@@ -1,4 +1,4 @@
-package edu.spring.spring05.domain;
+package edu.spring.spring07.domain;
 
 public enum Genres {
 

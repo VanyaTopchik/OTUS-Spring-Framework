@@ -1,9 +1,9 @@
-package edu.spring.spring05.dao;
+package edu.spring.spring07.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
-import edu.spring.spring05.domain.Comment;
+import edu.spring.spring07.domain.Comment;
 
 @Repository
 public class CommentDaoImpl implements CommentDao {

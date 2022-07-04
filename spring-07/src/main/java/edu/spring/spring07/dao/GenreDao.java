@@ -1,8 +1,8 @@
-package edu.spring.spring05.dao;
+package edu.spring.spring07.dao;
 
 import java.util.List;
-import edu.spring.spring05.domain.Genre;
-import edu.spring.spring05.domain.Genres;
+import edu.spring.spring07.domain.Genre;
+import edu.spring.spring07.domain.Genres;
 
 public interface GenreDao {
 

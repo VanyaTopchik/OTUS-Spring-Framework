@@ -1,4 +1,4 @@
-package edu.spring.spring05.domain;
+package edu.spring.spring07.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,16 +11,16 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Entity
-@Table(name = "authors")
+@Table(name = "genres")
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class Author {
+public class Genre {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private final String name;
+    @Column(name = "genre")
+    private final Genres genre;
 }

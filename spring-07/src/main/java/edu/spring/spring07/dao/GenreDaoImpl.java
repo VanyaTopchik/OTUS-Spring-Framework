@@ -1,4 +1,4 @@
-package edu.spring.spring05.dao;
+package edu.spring.spring07.dao;
 
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -6,8 +6,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
-import edu.spring.spring05.domain.Genre;
-import edu.spring.spring05.domain.Genres;
+import edu.spring.spring07.domain.Genre;
+import edu.spring.spring07.domain.Genres;
 
 @Repository
 @Transactional

@@ -1,9 +1,9 @@
-package edu.spring.spring05.dao;
+package edu.spring.spring07.dao;
 
 import java.util.List;
-import edu.spring.spring05.domain.Author;
-import edu.spring.spring05.domain.Book;
-import edu.spring.spring05.domain.Genre;
+import edu.spring.spring07.domain.Author;
+import edu.spring.spring07.domain.Book;
+import edu.spring.spring07.domain.Genre;
 
 public interface BookDao {
 

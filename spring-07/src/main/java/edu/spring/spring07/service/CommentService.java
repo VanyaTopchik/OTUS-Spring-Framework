@@ -1,7 +1,7 @@
-package edu.spring.spring05.service;
+package edu.spring.spring07.service;
 
 import java.util.List;
-import edu.spring.spring05.domain.Comment;
+import edu.spring.spring07.domain.Comment;
 
 public interface CommentService {
     void addComment(Comment comment);
