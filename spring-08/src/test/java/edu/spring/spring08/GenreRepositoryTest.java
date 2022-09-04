@@ -1,8 +1,8 @@
-package edu.spring.spring07;
+package edu.spring.spring08;
 
-import edu.spring.spring07.domain.Genre;
-import edu.spring.spring07.domain.Genres;
-import edu.spring.spring07.repository.GenreRepository;
+import edu.spring.spring08.domain.Genre;
+import edu.spring.spring08.domain.Genres;
+import edu.spring.spring08.repository.GenreRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

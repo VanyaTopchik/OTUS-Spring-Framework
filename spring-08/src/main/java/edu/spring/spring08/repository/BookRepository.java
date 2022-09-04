@@ -1,8 +1,8 @@
-package edu.spring.spring07.repository;
+package edu.spring.spring08.repository;
 
-import edu.spring.spring07.domain.Author;
-import edu.spring.spring07.domain.Book;
-import edu.spring.spring07.domain.Genre;
+import edu.spring.spring08.domain.Author;
+import edu.spring.spring08.domain.Book;
+import edu.spring.spring08.domain.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

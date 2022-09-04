@@ -1,4 +1,4 @@
-package edu.spring.spring07.domain;
+package edu.spring.spring08.domain;
 
 public enum Genres {
     ROMAN("Роман"),

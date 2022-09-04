@@ -1,6 +1,6 @@
-package edu.spring.spring07.service;
+package edu.spring.spring08.service;
 
-import edu.spring.spring07.domain.Comment;
+import edu.spring.spring08.domain.Comment;
 
 import java.util.List;
 

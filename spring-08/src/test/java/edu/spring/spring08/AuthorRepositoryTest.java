@@ -1,7 +1,7 @@
-package edu.spring.spring07;
+package edu.spring.spring08;
 
-import edu.spring.spring07.domain.Author;
-import edu.spring.spring07.repository.AuthorRepository;
+import edu.spring.spring08.domain.Author;
+import edu.spring.spring08.repository.AuthorRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

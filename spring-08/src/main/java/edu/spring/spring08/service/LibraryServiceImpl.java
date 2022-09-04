@@ -1,8 +1,8 @@
-package edu.spring.spring07.service;
+package edu.spring.spring08.service;
 
-import edu.spring.spring07.domain.Comment;
-import edu.spring.spring07.repository.BookRepository;
-import edu.spring.spring07.repository.CommentRepository;
+import edu.spring.spring08.domain.Comment;
+import edu.spring.spring08.repository.BookRepository;
+import edu.spring.spring08.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

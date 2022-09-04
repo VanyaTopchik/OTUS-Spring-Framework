@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>edu.spring</groupId>
-    <artifactId>spring-07</artifactId>
+    <artifactId>spring-08</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-06</name>
     <description>Demo project for Spring Boot</description>
