@@ -1,7 +1,6 @@
 package edu.spring.spring07.domain;
 
 public enum Genres {
-
     ROMAN("Роман"),
     STORY("Повесть"),
     POEM("Поэма"),
@@ -16,5 +15,4 @@ public enum Genres {
     Genres(String title) {
         this.title = title;
     }
-
 }

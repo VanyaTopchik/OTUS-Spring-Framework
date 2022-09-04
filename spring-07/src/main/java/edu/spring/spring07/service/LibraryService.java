@@ -1,10 +1,10 @@
 package edu.spring.spring07.service;
 
-import java.util.List;
 import edu.spring.spring07.domain.Comment;
 
-public interface CommentService {
+import java.util.List;
 
+public interface LibraryService {
     void addComment(Comment comment);
 
     List<Comment> getCommentsByBookId(long id);
